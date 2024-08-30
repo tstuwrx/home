@@ -34,6 +34,7 @@ export LESS_TERMCAP_se=""
 export LESS_TERMCAP_so="[34m" # blue
 export LESS_TERMCAP_ue=""
 export LESS_TERMCAP_us="[4m"  # underline
+export GROFF_NO_SGR=1
 export GPG_TTY=$(tty)
 
 pathappend() {
