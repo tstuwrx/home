@@ -18,6 +18,7 @@ export GITUSER="$USER"
 export TZ=America/Chicago
 export BIN="$HOME/bin"
 export REPOS="$HOME/repos"
+export LOCAL="$HOME/.local/bin"
 export TERM=xterm-256color
 export HRULEWIDTH=73
 export EDITOR=vi
@@ -26,6 +27,9 @@ export EDITOR_PREFIX=vi
 export HELP_BROWSER=lynx
 export PYTHONDONTWRITEBYTECODE=2
 export LC_COLLATE=C
+export GOBIN="$HOME/.local/bin"
+export GOPROXY=direct
+export CGO_ENABLED=0
 export LESS="-FXR"
 export LESS_TERMCAP_mb="[35m" # magenta
 export LESS_TERMCAP_md="[33m" # yellow
@@ -60,7 +64,9 @@ pathprepend() {
 } && export -f pathprepend
 
 pathprepend \
-  "$BIN"
+  "$BIN" \
+  "$LOCAL" \
+  $HOME/.local/go/bin
 
 export CDPATH=".:$REPOS:$HOME"
 
@@ -123,7 +129,7 @@ __ps1() {
 	countme="$USER$PROMPT_AT$(hostname):$dir($B)\$ "
 
 	[[ $B == master || $B == main ]] && b="$r"
-	[[ -n "$B" ]] && B="$g($b$B$g)"
+	[[ -n "$B" ]] && B="$g:$b$B$g"
 
 	short="$u\u$g$PROMPT_AT$h\h$g:$w$dir$B$p$P$x "
 	long="$g╔ $u\u$g$PROMPT_AT$h\h$g:$w$dir$B\n$g╚ $p$P$x "
