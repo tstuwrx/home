@@ -7,11 +7,9 @@ case $- in
 esac
 
 # local utility functions
-
 _have() { type "$1" &>/dev/null; }
 
 # environment variables
-
 export LANG=en_US.UTF-8
 export USER="${USER:-$(whoami)}"
 export GITUSER="$USER"
@@ -27,9 +25,6 @@ export EDITOR_PREFIX=vi
 export HELP_BROWSER=lynx
 export PYTHONDONTWRITEBYTECODE=2
 export LC_COLLATE=C
-export GOBIN="$HOME/.local/bin"
-export GOPROXY=direct
-export CGO_ENABLED=0
 export LESS="-FXR"
 export LESS_TERMCAP_mb="[35m" # magenta
 export LESS_TERMCAP_md="[33m" # yellow
@@ -65,8 +60,7 @@ pathprepend() {
 
 pathprepend \
   "$BIN" \
-  "$LOCAL" \
-  $HOME/.local/go/bin
+  "$LOCAL"
 
 export CDPATH=".:$REPOS:$HOME"
 
