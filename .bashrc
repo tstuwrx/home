@@ -9,6 +9,10 @@ esac
 # local utility functions
 _have() { type "$1" &>/dev/null; }
 
+# determine editor
+_have 'vim' && export EDITOR='vim'
+_have 'nvim' && export EDITOR='nvim'
+
 # environment variables
 export LANG=en_US.UTF-8
 export USER="${USER:-$(whoami)}"
@@ -19,12 +23,13 @@ export REPOS="$HOME/repos"
 export LOCAL="$HOME/.local/bin"
 export TERM=xterm-256color
 export HRULEWIDTH=73
-export EDITOR=vi
-export VISUAL=vi
-export EDITOR_PREFIX=vi
+export VISUAL="$EDITOR"
+export EDITOR_PREFIX="$EDITOR"
 export HELP_BROWSER=lynx
+# coding
 export PYTHONDONTWRITEBYTECODE=2
 export LC_COLLATE=C
+# pager
 export LESS="-FXR"
 export LESS_TERMCAP_mb="[35m" # magenta
 export LESS_TERMCAP_md="[33m" # yellow
@@ -35,6 +40,10 @@ export LESS_TERMCAP_ue=""
 export LESS_TERMCAP_us="[4m"  # underline
 export GROFF_NO_SGR=1
 export GPG_TTY=$(tty)
+# history
+export HISTCONTROL=ignoreboth
+export HISTSIZE=5000
+export HISTFILESIZE=10000
 
 pathappend() {
   declare arg
@@ -84,24 +93,27 @@ if _have dircolors; then
 fi
 
 # bash shell options
-
 shopt -s checkwinsize # enables $COLUMNS and $ROWS
 shopt -s expand_aliases
 shopt -s globstar
 shopt -s dotglob
 shopt -s extglob
-
-# history
-
-export HISTCONTROL=ignoreboth
-export HISTSIZE=5000
-export HISTFILESIZE=10000
-
-set -o vi
 shopt -s histappend
 
-# prompt
+set -o vi
+unalias -a
+alias vi="$EDITOR"
+alias ip='ip -c'
+alias ls='ls -h --color=auto'
+alias grep='grep --color=auto'
+alias free='free -h'
+alias df='df -h'
+alias view='vi -R'
+alias diff='diff --color'
+alias clear='printf "\e[H\e[2J\e[3J"'
+alias c='printf "\e[H\e[2J\e[3J"'
 
+# prompt
 PROMPT_LONG=20
 PROMPT_MAX=95
 PROMPT_AT=@
@@ -137,19 +149,4 @@ __ps1() {
 		PS1="$short"
 	fi
 }
-
 PROMPT_COMMAND="__ps1"
-
-# aliases
-
-unalias -a
-alias vi='vim'
-alias ip='ip -c'
-alias ls='ls -h --color=auto'
-alias grep='grep --color=auto'
-alias free='free -h'
-alias df='df -h'
-alias view='vi -R'
-alias diff='diff --color'
-alias clear='printf "\e[H\e[2J\e[3J"'
-alias c='printf "\e[H\e[2J\e[3J"'
