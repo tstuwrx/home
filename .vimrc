@@ -3,20 +3,22 @@
 set nocompatible
 set nonumber
 set norelativenumber
-set ruler " see ruf for formatting
 set showmode
 set textwidth=72
 set icon
 set showmatch
 set hidden
 set background=dark
+set mouse=
 set ttyfast
 let mapleader=","
 filetype plugin on
 syntax on
 
 " ruler format
+set ruler
 set laststatus=0
+set noshowcmd
 set ruf=%30(%=%#LineNr#%.50F\ [%{strlen(&ft)?&ft:'none'}]\ %l:%c\ %p%%%)
 
 " Tablature
