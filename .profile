@@ -41,6 +41,7 @@ export LESS_TERMCAP_us="[4m"  # underline
 export GROFF_NO_SGR=1
 export GPG_TTY=$(tty)
 # history
+export HISTFILE="$HOME/.history"
 export HISTCONTROL=ignoreboth
 export HISTSIZE=5000
 export HISTFILESIZE=10000
