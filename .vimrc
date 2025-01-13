@@ -15,6 +15,9 @@ let mapleader=","
 filetype plugin on
 syntax on
 
+" disable RCE lol
+set nomodeline
+
 " ruler format
 set ruler
 set laststatus=0
