@@ -29,6 +29,7 @@ export HELP_BROWSER=lynx
 # coding
 export PYTHONDONTWRITEBYTECODE=2
 export LC_COLLATE=C
+export CFLAGS="-Wall -Wextra -Werror -O0 -g -fsanitize=address -fno-omit-frame-pointer -finstrument-functions"
 # pager
 export LESS="-FXR"
 export LESS_TERMCAP_mb="[35m" # magenta
