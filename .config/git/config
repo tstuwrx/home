@@ -1,0 +1,18 @@
+[user]
+        name = Tristan Stuart
+        email = tristan6090@proton.me
+
+[core]
+        whitespace = error
+        preloadindex = true
+
+[init]
+        defaultBranch = main
+
+[status]
+        branch = true
+
+[diff]
+        context = 3
+        renames = copies
+        interHunkContext = 10
