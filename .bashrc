@@ -10,17 +10,15 @@ esac
 _have() { type "$1" &>/dev/null; }
 
 # determine editor
+export EDITOR='vi'
 _have 'vim' && export EDITOR='vim'
-_have 'nvim' && export EDITOR='nvim'
 
 # environment variables
 export LANG=en_US.UTF-8
 export USER="${USER:-$(whoami)}"
 export GITUSER="$USER"
 export TZ=America/Chicago
-export BIN="$HOME/bin"
 export REPOS="$HOME/repos"
-export LOCAL="$HOME/.local/bin"
 export TERM=xterm-256color
 export HRULEWIDTH=73
 export VISUAL="$EDITOR"
@@ -30,6 +28,7 @@ export HELP_BROWSER=lynx
 export PYTHONDONTWRITEBYTECODE=2
 export LC_COLLATE=C
 export CFLAGS="-Wall -Wextra -Werror -O0 -g -fsanitize=address -fno-omit-frame-pointer -finstrument-functions"
+export GOBIN="$HOME/.local/bin"
 # pager
 export LS_COLORS="di=38;5;245:fi=38;5;223:ln=38;5;179:ex=38;5;108:*.txt=38;5;223"
 export LESS="-FXR"
@@ -70,8 +69,9 @@ pathprepend() {
 } && export -f pathprepend
 
 pathprepend \
-  "$BIN" \
-  "$LOCAL"
+    "$HOME/bin" \
+    "$HOME/.local/go/bin" \
+    "$HOME/.local/bin"
 
 export CDPATH=".:$REPOS:$HOME"
 
