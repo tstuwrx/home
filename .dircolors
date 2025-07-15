@@ -107,6 +107,7 @@ EXEC 31  # Unix
 .pl 32
 .pm 32
 .py 32
+.go 32
 .rb 32
 .hs 32
 .php 32
@@ -116,6 +117,9 @@ EXEC 31  # Unix
 .erb 32
 .haml 32
 .xml 32
+.yml 32
+.yaml 32
+.toml 32
 .rdf 32
 .css 32
 .sass 32
@@ -139,6 +143,12 @@ EXEC 31  # Unix
 .p 32
 .pod 32
 .tex 32
+.f 32
+.F 32
+.f90 32
+.F90 32
+.for 32
+.FOR 32
 
 ### Multimedia formats
 
