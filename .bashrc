@@ -15,20 +15,28 @@ _have 'vim' && export EDITOR='vim'
 
 # environment variables
 export LANG=en_US.UTF-8
+export TZ=America/Chicago
 export USER="${USER:-$(whoami)}"
 export GITUSER="$USER"
-export TZ=America/Chicago
-export REPOS="$HOME/repos"
+export REPOS="$HOME/Repos"
 export TERM=xterm-256color
 export HRULEWIDTH=73
 export VISUAL="$EDITOR"
 export EDITOR_PREFIX="$EDITOR"
 export HELP_BROWSER=lynx
+# xdg standards
+export XDG_STATE_HOME="$HOME/.local/state"
+export XDG_CACHE_HOME="$HOME/.cache"
+export XDG_CONFIG_HOME="$HOME/.config"
+export XDG_DATA_HOME="${XDG_DATA_HOME:-$HOME/.local/share}"
 # coding
 export PYTHONDONTWRITEBYTECODE=2
 export LC_COLLATE=C
 export CFLAGS="-Wall -Wextra -Werror -O0 -g -fsanitize=address -fno-omit-frame-pointer -finstrument-functions"
 export GOBIN="$HOME/.local/bin"
+export GOPATH="$XDG_DATA_HOME/go"
+export GOPROXY=direct
+export CGO_ENABLED=0
 # pager
 export LS_COLORS="di=38;5;245:fi=38;5;223:ln=38;5;179:ex=38;5;108:*.txt=38;5;223"
 export LESS="-FXR"

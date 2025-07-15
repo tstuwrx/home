@@ -144,3 +144,8 @@ au FileType markdown,text set tw=0 wrap
 au FileType python set sw=4
 au FileType markdown,text noremap j gj
 au FileType markdown,text noremap k gk
+au FileType yaml hi yamlBlockMappingKey ctermfg=NONE
+au FileType yaml set sw=2
+au FileType bash,sh set sw=2
+au FileType bash,sh set noet
+au FileType c set sw=8
